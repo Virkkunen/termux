@@ -63,3 +63,33 @@
     read -p 'Process complete!'
     ```
     * Save with **Vol Down + O**, quit with **Vol Down + X**
+
+
+# Super Mario 64 Port
+
+1. Install the required dependencies inside the Termux environment:
+  ```bash
+  pkg install git wget make python getconf zip apksigner clang
+  ```
+1. Clone the appropriate repository using git:
+  ```bash
+  git clone https://github.com/VDavid003/sm64-port-android
+  cd sm64-port-android
+  ```
+1. Copy the baserom of the game using Termux.
+  ```bash
+  cp /sdcard/path/to/your/baserom.z64 ./baserom.us.z64
+  ```
+1. Get SDL includes:
+  ```bash
+  ./getSDL.sh
+  ```
+1. Start the build:
+  ```bash
+  make --jobs 4
+  ```
+  You can increase the value of the “jobs” parameter depending on how many CPU cores you can devote to the building process.
+1. The resulting Super Mario 64 APK should be found inside the “build” folder:
+  ```bash
+  ls -al build/us_pc/sm64.us.f3dex2e.apk
+  ```
