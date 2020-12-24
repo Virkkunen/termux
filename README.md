@@ -1,8 +1,8 @@
 # Youtube-dl
   
-1. Download Python and nano
+1. Download Python and micro
     ```bash
-    apt update && apt install nano python
+    apt update && apt install micro python
     ```
 1. Give Termux read/write storage permission with `termux-setup-storage`
 1. Install youtube-dl
@@ -16,7 +16,7 @@
 1. Create youtube-dl config
     ```bash
     mkdir -p ~/.config/youtube-dl
-    nano ~/.config/youtube-dl/config
+    micro ~/.config/youtube-dl/config
     ```
 1. Paste code into config file
     ```bash
@@ -29,7 +29,7 @@
     ```bash
     mkdir ~/bin
     cd ~/bin
-    nano termux-url-opener
+    micro termux-url-opener
     ```
 1. Paste code into **termux-url-opener**
     ```bash
@@ -40,16 +40,16 @@
      
 # Synthetic Long Exposure
   
-1. Install nano, ffmpeg and imagemagick
+1. Install micro, ffmpeg and imagemagick
     ```bash
-    apt update && apt install nano ffmpeg imagemagick
+    apt update && apt install micro ffmpeg imagemagick
     ```
 1. Give Termux read/write storage permission with `termux-setup-storage`
 1. Create **termux-file-editor** in **~/bin**
     ```bash
     mkdir ~/bin
     cd ~/bin
-    nano termux-file editor
+    micro termux-file editor
     ```
 1. Paste code in **termux-file-editor**
     ```bash
