@@ -24,7 +24,6 @@
     -o /data/data/com.termux/files/home/storage/shared/YouTube/%(title)s.%(ext)s
     -f "best[height<=2160]"
     ```
-    * Save with **Vol Down + O**, quit with **Vol Down + X**
 1. Create **termux-url-opener** in **~/bin**
     ```bash
     mkdir ~/bin
