@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 termux-change-repo
 pkg upgrade -y
-pkg install -y micro lsd neofetch 
+pkg install -y micro lsd neofetch openssh
 
 git clone https://github.com/Virkkunen/termux.git "$HOME/termux-vrkknn"
 mv "$HOME/termux-vrkknn/colors"/* "$HOME/.termux/colors"
@@ -12,12 +12,21 @@ echo "alias fetch='clear && neofetch'" >> "$HOME/.zshrc"
 echo "alias ls='lsd'" >> "$HOME/.zshrc"
 echo "alias ll='ls -hl'" >> "$HOME/.zshrc"
 echo "alias la='ls -hal'" >> "$HOME/.zshrc"
+echo "alias auto='apt-get autoremove && apt-get autoclean'" >> "$HOME/.zshrc"
 
 git clone https://github.com/catppuccin/zsh-syntax-highlighting.git
-cp -v "$HOME/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh" "$HOME/.zsh/"
+mkdir ~/.zsh
+cp "$HOME/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh" "$HOME/.zsh/"
+sed -i '$d' "$HOME/.zshrc"
 echo "source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh" >> "$HOME/.zshrc"
+echo "source $HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> "$HOME/.zshrc"
 
-echo "oh-my-zsh install complete!\nChoose your color scheme now"
+rm -rf termux-vrkknn
+rm -rf termux-ohmyzsh
+rm -rf zsh-syntax-highlighting
+touch .hushlogin
+
+echo "addons install complete!\nChoose your color scheme now"
 $HOME/.termux/colors.sh
 
 echo "Choose your font now"
