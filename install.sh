@@ -12,6 +12,7 @@ echo "alias fetch='clear && neofetch'" >> "$HOME/.zshrc"
 echo "alias ls='lsd'" >> "$HOME/.zshrc"
 echo "alias ll='ls -hl'" >> "$HOME/.zshrc"
 echo "alias la='ls -hal'" >> "$HOME/.zshrc"
+echo "alias cat='bat'" >> "$HOME/.zshrc"
 echo "alias auto='apt-get autoremove && apt-get autoclean'" >> "$HOME/.zshrc"
 
 git clone https://github.com/catppuccin/zsh-syntax-highlighting.git
@@ -25,6 +26,13 @@ git clone https://github.com/catppuccin/micro.git
 mkdir -p ~/.config/micro/colorschemes
 mv ~/micro/src/* ~/.config/micro/colorschemes
 echo "export 'MICRO_TRUECOLOR=1'" >> "$HOME/.zshrc"
+
+pkg install bat
+git clone https://github.com/catppuccin/bat.git
+mkdir -p "$(bat --config-dir)/themes"
+cp bat/*.tmTheme "$(bat --config-dir)/themes"
+bat cache --build
+echo "export BAT_THEME='Catppuccin-mocha'" >> "$HOME/.zshrc"
 
 rm -rf termux-vrkknn
 rm -rf termux-ohmyzsh
