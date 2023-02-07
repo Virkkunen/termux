@@ -8,5 +8,6 @@ echo "alias la='ls -hal'" >> "$HOME/.zshrc"
 echo "alias cat='bat'" >> "$HOME/.zshrc"
 
 git clone https://github.com/Virkkunen/termux.git "$HOME/termux-vrkknn"
-mv "~/termux-vrkknn/colors/*" "~/.termux/colors"
-mv "~/termux-vrkknn/fonts/*" "~/.termux/fonts"
+cd termux-vrkknn
+mv "colors/*" "$HOME/.termux/colors"
+mv "fonts/*" "$HOME/.termux/fonts"
