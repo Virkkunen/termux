@@ -13,3 +13,12 @@ echo "alias la='ls -hal'" >> "$HOME/.zshrc"
 
 pkg upgrade -y
 pkg install -y micro lsd neofetch 
+
+echo "oh-my-zsh install complete!\nChoose your color scheme now"
+$HOME/.termux/colors.sh
+
+echo "Choose your font now"
+$HOME/.termux/fonts.sh
+
+echo "Please restart Termux app..."
+exit
