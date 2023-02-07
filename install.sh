@@ -38,6 +38,8 @@ rm -rf termux-vrkknn
 rm -rf termux-ohmyzsh
 rm -rf zsh-syntax-highlighting
 rm -rf micro
+rm -rf bat
+sed -i '/^#/d' "$HOME/.zshrc"
 touch .hushlogin
 
 echo "addons install complete!\nChoose your color scheme now"
