@@ -22,7 +22,7 @@ echo "alias ll='ls -hl'" >> "$HOME/.zshrc"
 echo "alias la='ls -hal'" >> "$HOME/.zshrc"
 echo "alias cat='bat'" >> "$HOME/.zshrc"
 
-git clone https://github.com/catppuccin/bat.git "~/bat" --depth 1
+git clone https://github.com/catppuccin/bat.git
 mkdir -p "$(bat --config-dir)/themes"
 cp bat/*.tmTheme "$(bat --config-dir)/themes"
 bat cache --build
