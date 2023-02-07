@@ -22,19 +22,20 @@ echo "alias ll='ls -hl'" >> "$HOME/.zshrc"
 echo "alias la='ls -hal'" >> "$HOME/.zshrc"
 echo "alias cat='bat'" >> "$HOME/.zshrc"
 
-git clone https://github.com/catppuccin/bat.git "$HOME/bat" --depth 1
+git clone https://github.com/catppuccin/bat.git "~/bat" --depth 1
 mkdir -p "$(bat --config-dir)/themes"
 cp bat/*.tmTheme "$(bat --config-dir)/themes"
 bat cache --build
 rm -rf bat/
-echo "export BAT_THEME='Catppuccin-mocha'" >> "$HOME/.zshrc"
-echo "export MICRO_TRUECOLOR=1" >> "$HOME/.zshrc"
+echo "export BAT_THEME='Catppuccin-mocha'" >> "~/.zshrc"
+echo "export MICRO_TRUECOLOR=1" >> "~/.zshrc"
 
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zsh-syntax-highlighting" --depth 1
-git clone https://github.com/catppuccin/zsh-syntax-highlighting.git "$HOME/catppuccin-zsh-syntax-highlighting" --depth 1
-cp -v $HOME/catppuccin-zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh $HOME/.zsh/
-echo "source $HOME/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh" >> "$HOME/.zshrc"
-echo "source $HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> "$HOME/.zshrc"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "~/.zsh-syntax-highlighting" --depth 1
+git clone https://github.com/catppuccin/zsh-syntax-highlighting.git "~/catppuccin-zsh-syntax-highlighting" --depth 1
+mkdir ~/.zsh-syntax-highlighting/themes
+cp -v ~/catppuccin-zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh ~/.zsh-syntax-highlighting/themes
+echo "source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh" >> "~/.zshrc"
+echo "source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> "~/.zshrc"
 
 chsh -s zsh
 
