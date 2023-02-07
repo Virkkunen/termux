@@ -23,7 +23,7 @@ echo "source $HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> "$HO
 
 git clone https://github.com/catppuccin/micro.git
 mkdir -p ~/.config/micro/colorschemes
-mv "~/micro/src"/* "~/.config/micro/colorschemes"
+mv ~/micro/src/* ~/.config/micro/colorschemes
 echo "export 'MICRO_TRUECOLOR=1'" >> "$HOME/.zshrc"
 
 rm -rf termux-vrkknn
