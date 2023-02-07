@@ -1,94 +1,25 @@
-# Youtube-dl
-  
-1. Download Python and micro
-    ```bash
-    apt update && apt install micro python
-    ```
-1. Give Termux read/write storage permission with `termux-setup-storage`
-1. Install youtube-dl
-    ```bash
-    pip install youtube-dl
-    ```
-1. Create a folder where videos will be stored
-    ```bash
-    mkdir /data/data/com.termux/files/home/storage/shared/YouTube
-    ```
-1. Create youtube-dl config
-    ```bash
-    mkdir -p ~/.config/youtube-dl
-    micro ~/.config/youtube-dl/config
-    ```
-1. Paste code into config file
-    ```bash
-    --no-mtime
-    -o /data/data/com.termux/files/home/storage/shared/YouTube/%(title)s.%(ext)s
-    -f "best[height<=2160]"
-    ```
-1. Create **termux-url-opener** in **~/bin**
-    ```bash
-    mkdir ~/bin
-    cd ~/bin
-    micro termux-url-opener
-    ```
-1. Paste code into **termux-url-opener**
-    ```bash
-    youtube-dl $1
-    ```
-    * Save with **Vol Down + O**, quit with **Vol Down + X**
-    
-     
-# Synthetic Long Exposure
-  
-1. Install micro, ffmpeg and imagemagick
-    ```bash
-    apt update && apt install micro ffmpeg imagemagick
-    ```
-1. Give Termux read/write storage permission with `termux-setup-storage`
-1. Create **termux-file-editor** in **~/bin**
-    ```bash
-    mkdir ~/bin
-    cd ~/bin
-    micro termux-file editor
-    ```
-1. Paste code in **termux-file-editor**
-    ```bash
-    #!/bin/bash
-    read -p 'Frame rate: ' -e -i '30' framerate
-    read -p 'median, mean, min or max? ' -e -i 'mean' method
-    ffmpeg -i "$1" -r $framerate -f image2 'frame_%05d.png'
-    ls frame_*.png | xargs -n 30 sh -c 'convert "$0" "$@" -evaluate-sequence '$method' "x$0" '
-    convert x*.png -evaluate-sequence $method -channel RGB -normalize /storage/emulated/0/Download/final.png
-    rm *frame*.png
-    read -p 'Process complete!'
-    ```
-    * Save with **Vol Down + O**, quit with **Vol Down + X**
+# Termux
 
+```shell
+sh -c "$(curl -fsSL https://github.com/Virkkunen/termux/raw/master/install.sh)"
+```
 
-# Super Mario 64 Port
+## Tips (See Termux Wiki)
+Use two-finger pinch to adjust font size. Termux use combination with volume keys to emulate some functions in shell:
+* `VolDown+C`: `Ctrl+C`, send SIGINT to interrupt current process
+* `VolDown+D`: `Ctrl+D`, EOF logout current session
+* `VolDown+E`: `Ctrl+E`, move cursor to end of line in shell
+* `VolDown+L`: `Ctrl+L`, clear terminal screen
+* `VolDown+Z`: `Ctrl+Z`, send SIGTSTP to suspend current process
 
-1. Install the required dependencies inside the Termux environment:
-    ```bash
-    pkg install git wget make python getconf zip apksigner clang
-    ```
-1. Clone the appropriate repository using git:
-    ```bash
-    git clone https://github.com/VDavid003/sm64-port-android
-    cd sm64-port-android
-    ```
-1. Copy the baserom of the game using Termux.
-    ```bash
-    cp /sdcard/path/to/your/baserom.z64 ./baserom.us.z64
-    ```
-1. Get SDL includes:
-    ```bash
-    ./getSDL.sh
-    ```
-1. Start the build:
-    ```bash
-    make --jobs 4
-    ```
-    * You can increase the value of the “jobs” parameter depending on how many CPU cores you can devote to the building process.
-1. The resulting Super Mario 64 APK should be found inside the “build” folder:
-    ```bash
-    ls -al build/us_pc/sm64.us.f3dex2e.apk
-    ```
+You can `VolUp+Q` to bring up an extra key bar, but you can also use combinations below:
+* `VolUp+W/A/S/D`: Move cursor up/left/down/right
+* `VolUp+E`: ESC
+* `VolUp+T`: TAB
+* `VolUp+Digits`: F1-F9, F10 is 0
+* `VolUp+L`: pipe character "|"
+* `VolUp+H`: tilt character "~"
+* `VolUp+U`: underscore "_"
+* `VolUp+V`: Volume control
+
+For better text input experience, swipe left on the `VolUp+Q` key bar.

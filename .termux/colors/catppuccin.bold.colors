@@ -1,0 +1,21 @@
+# catppuccin.mocha.colors
+# Color scheme from https://github.com/catppuccin/catppuccin
+color0=#1e1e2e
+color1=#f38ba8
+color2=#a6e3a1
+color3=#f9e2af
+color4=#89b4fa
+color5=#cba6f7
+color6=#94e2d5
+color7=#cdd6f4
+color8=#181825
+color9=#d20f39
+color10=#40a02b
+color11=#df8e1d
+color12=#1e66f5
+color13=#8839ef
+color14=#179299
+color15=#dce0e8
+background=#11111b
+foreground=#cdd6f4
+cursor=#bac2de
