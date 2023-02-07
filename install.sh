@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 termux-change-repo
 pkg upgrade -y
-pkg install -y micro lsd neofetch openssh
+pkg install -y micro lsd neofetch openssh topgrade
 
 git clone https://github.com/Virkkunen/termux.git "$HOME/termux-vrkknn"
 mv "$HOME/termux-vrkknn/colors"/* "$HOME/.termux/colors"
